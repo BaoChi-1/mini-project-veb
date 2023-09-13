@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background: url(../frog-_3_.png) no-repeat;
+    background-size: cover;
+}
+
+#gameboard-tic-tac-toe {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 1px black;
+    background-color: black;
+}
+
+#restartButton {
+    margin-top: 1vi;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: solid 1px rgb(53, 147, 175);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#restartButton:hover {
+    background-color: #c1cad4;
+    color: black;
+    transform: scale(1.05);
+}
+
+#restartButton:focus {
+    outline: none;
+}
+
+.inform {
+    font-size: 1.3vi;
+}
+
+.square1 {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border: solid 2px black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    border: 15px solid blue;
+    box-sizing: border-box;
+}
+
+.cross {
+    height: 90px;
+    width: 90px;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.cross:before,
+.cross:after {
+    content: "";
+    position: absolute;
+    background-color: red;
+}
+
+.cross:before {
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+    height: 100%;
+}
+
+.cross:after {
+    top: 50%;
+    height: 30%;
+    margin-top: -15%;
+    width: 100%;
+}
+
+a {
+    position: relative;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vi;
+    display: inline-block;
+    color: #494030;
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 1;
+    margin-left: 1vi;
+    z-index: 1;
+    padding: 27px 30px;
+    border-radius: 60px;
+    text-transform: uppercase;
+    transition: color .1s linear;
+    -webkit-transition: color .1s linear;
+    -moz--transition: color .1s linear;
+    -webkit-text-shadow: 4px -2px 4px rgba(0, 0, 0, 0.47);
+    -moz-text-shadow: 4px -2px 4px rgba(0, 0, 0, 0.47);
+    text-shadow: 4px -2px 4px rgba(129, 5, 5, 0.47);
+}
+
+header a:hover,
+header a.active {
+    color: #885512f5;
+    background-color: #924646d2;
+    background: linear-gradient(360deg, transparent, #da4c4c70);
+
+}
