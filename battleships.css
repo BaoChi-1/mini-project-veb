@@ -1,0 +1,144 @@
+.option-container {
+    width: 500px;
+    height: 70px;
+    margin: 30px 0;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+}
+
+.destroyer-preview {
+    width: 20px;
+    height: 10px;
+    margin: 3px;
+}
+
+.cruiser-preview {
+    width: 30px;
+    height: 10px;
+    margin: 3px;
+}
+
+.battleship-preview {
+    width: 40px;
+    height: 10px;
+    margin: 3px;
+}
+
+.carrier-preview {
+    width: 50px;
+    height: 10px;
+    margin: 3px;
+}
+
+.submarine-preview {
+    width: 30px;
+    height: 10px;
+    margin: 3px;
+}
+
+.submarine {
+    background-color: green;
+}
+
+.cruiser {
+    background-color: purple;
+}
+
+.battleship {
+    background-color: rgb(131, 87, 7);
+}
+
+.carrier {
+    background-color: violet;
+}
+
+.destroyer {
+    background-color: brown;
+}
+
+.game-board {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#gameboard-battleships {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.block {
+    width: 20px;
+    height: 20px;
+    border: solid 1px black;
+    box-sizing: border-box;
+}
+
+.hover,
+.empty {
+    background-color: gray;
+}
+
+.boom {
+    background-color: rgb(0, 0, 0);
+    transform: rotate(45deg);
+}
+
+.boom:before,
+.boom:after {
+    content: "";
+    position: absolute;
+    background-color: rgb(255, 0, 0);
+}
+
+.boom:before {
+    left: 50%;
+    width: 30%;
+    margin-left: -15%;
+    height: 100%;
+}
+
+.boom:after {
+    top: 50%;
+    height: 30%;
+    margin-top: -15%;
+    width: 100%;
+}
+
+#computer .destroyer,
+#computer .submarine,
+#computer .cruiser,
+#computer .battleship,
+#computer .carrier {
+    background-color: coral;
+}
+
+.game-info {
+    font-size: 1.3vi;
+}
+
+.btn {
+    display: flex;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: solid 1px rgb(53, 147, 175);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #c1cad4;
+    color: black;
+    transform: scale(1.05);
+}
+
+button:focus {
+    outline: none;
+}
