@@ -113,13 +113,11 @@ function changePlayer() {
 }
 
 function reverseIds() {
-    const allSquares = document.querySelectorAll(".square")
     allSquares.forEach((square, i) =>
         square.setAttribute('square-id', (width * width - 1) - i))
 }
 
 function revertIds() {
-    const allSquares = document.querySelectorAll(".square")
     allSquares.forEach((square, i) =>
         square.setAttribute('square-id', i))
 
@@ -137,6 +135,7 @@ function checkIsValid(target) {
             const starterRow = [8, 9, 10, 11, 12, 13, 14, 15];
 
             if (starterRow.includes(startId) && startId + width * 2 === targetId ||
+            startId + width === targetId && !document.querySelector(`[square-id="${targetId}"]`).firstChild||
                 startId + width - 1 === targetId && document.querySelector(`[square-id="${startId + width - 1}"]`).firstChild ||
                 startId + width + 1 === targetId && document.querySelector(`[square-id="${startId + width + 1}"]`).firstChild) {
                 return true;
