@@ -9,7 +9,7 @@ let go = "circle"
 infoDisplay.textContent = "Circle goes first"
 
 function createBoard() {
-    startCells.forEach((cell, index) => {
+    startCells.forEach((index) => {
         const cellElements = document.createElement('div')
         cellElements.classList.add('square1')
         cellElements.id = index;
@@ -39,24 +39,31 @@ function checkScore() {
     winningCombo.forEach(array => {
         let circleWins = array.every(cell =>
             allSquares[cell].firstChild?.classList.contains('circle'))
+        let crossWins = array.every(cell =>
+            allSquares[cell].firstChild?.classList.contains('cross'))
         if (circleWins) {
             infoDisplay.textContent = "Circle Wins!"
             allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
             alert("Circle wins!")
+            resetBoard();
             return
-        }
-    })
-    winningCombo.forEach(array => {
-        let crossWins = array.every(cell =>
-            allSquares[cell].firstChild?.classList.contains('cross'))
-        if (crossWins) {
+        } else if (crossWins) {
             infoDisplay.textContent = "Cross Wins!"
             allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
             alert("Cross wins!")
+            resetBoard();
             return
         }
-    })
 
+
+    })
+    if (checkDraw()) {
+        infoDisplay.textContent = "It's a draw"
+        allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+        alert("It's a draw")
+        resetBoard();
+        return
+    }
 }
 
 resetButton.addEventListener('click', resetBoard);
@@ -69,4 +76,13 @@ function resetBoard() {
     });
     infoDisplay.textContent = "Circle goes first";
     go = "circle";
+}
+function checkDraw() {
+    const allSquares = document.querySelectorAll(".square1");
+    for (let square of allSquares) {
+        if (!square.firstChild || (!square.firstChild.classList.contains('cross') && !square.firstChild.classList.contains('circle'))) {
+            return false;
+        }
+    }
+    return true;
 }
