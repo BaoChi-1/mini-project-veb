@@ -8,6 +8,8 @@ body {
     flex-direction: column;
     background: url(../frog-_3_.png) no-repeat;
     background-size: cover;
+    cursor: none;
+    overflow: hidden;
 }
 
 #gameboard-tic-tac-toe {
@@ -22,9 +24,9 @@ body {
 #reset-btn {
     margin-top: 1vi;
     padding: 10px 10px;
+    cursor: none;
     border-radius: 10px;
     border: solid 1px rgb(175, 53, 53);
-    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -95,6 +97,7 @@ a {
     font-size: 2vi;
     display: inline-block;
     color: #494030;
+    cursor: none;
     text-decoration: none;
     font-weight: bold;
     line-height: 1;
@@ -116,4 +119,11 @@ header a.active {
     color: #885512f5;
     background-color: #924646d2;
     background: linear-gradient(360deg, transparent, #da4c4c70);
+}
+
+.cursor{
+    position: absolute;
+    z-index: 100000;
+    pointer-events: none;
+    fill: rgb(49, 16, 27);
 }
