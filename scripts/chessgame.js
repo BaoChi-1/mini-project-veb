@@ -1,6 +1,8 @@
 const gameBoard = document.querySelector("#gameboard")
 const player = document.querySelector("#player")
 const infoDisplay = document.querySelector("#info-display")
+const resetButton = document.querySelector('#reset-btn');
+
 const width = 8
 
 let playerGo = 'black';
@@ -336,3 +338,31 @@ function checkWin() {
     }
 }
 
+resetButton.addEventListener('click', resetGame);
+
+function resetGame() {
+    const pieces = document.querySelectorAll('.piece');
+    pieces.forEach(piece => piece.parentNode.removeChild(piece));
+
+    startPieces.forEach((startPiece, i) => {
+        if (startPiece) {
+            const square = allSquares[i];
+            square.innerHTML = startPiece;
+            square.firstChild && square.firstChild.setAttribute('draggable', true);
+            if (i <= 15) {
+                square.querySelector('svg').classList.add('black');
+            }
+            else if (i >= 48) {
+                square.querySelector('svg').classList.add('white');
+            }
+        }
+
+    });
+
+    playerGo = 'black';
+    player.textContent = 'black ';
+
+    infoDisplay.textContent = '';
+
+    allSquares.forEach(square => square.setAttribute('draggable', true));
+}

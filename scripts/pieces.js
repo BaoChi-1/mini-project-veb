@@ -1,6 +1,6 @@
 const gameBoard = document.querySelector('#gameboard-tic-tac-toe');
 const infoDisplay = document.querySelector('#info');
-const resetButton = document.querySelector('#restartButton');
+const resetButton = document.querySelector('#reset-btn');
 
 const startCells = [
     "", "", "", "", "", "", "", "", ""

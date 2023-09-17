@@ -19,22 +19,22 @@ body {
     background-color: black;
 }
 
-#restartButton {
+#reset-btn {
     margin-top: 1vi;
     padding: 10px 10px;
     border-radius: 10px;
-    border: solid 1px rgb(53, 147, 175);
+    border: solid 1px rgb(175, 53, 53);
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-#restartButton:hover {
-    background-color: #c1cad4;
+#reset-btn:hover {
+    background-color: #ccbca4;
     color: black;
     transform: scale(1.05);
 }
 
-#restartButton:focus {
+#reset-btn:focus {
     outline: none;
 }
 
@@ -116,5 +116,4 @@ header a.active {
     color: #885512f5;
     background-color: #924646d2;
     background: linear-gradient(360deg, transparent, #da4c4c70);
-
 }

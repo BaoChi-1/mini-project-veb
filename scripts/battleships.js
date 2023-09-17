@@ -4,8 +4,7 @@ const container = document.querySelector('.option-container')
 const startBTN = document.querySelector('#start-btn')
 const infoDisplay = document.querySelector('#info')
 const turnDisplay = document.querySelector('#turn-display')
-
-
+const resetBtn = document.querySelector('#reset-btn');
 
 let angle = 0
 
@@ -276,4 +275,46 @@ function checkScore(user, userHits, userSunkShips) {
         alert('U lost :(')
         gameOver = true
     }
+}
+
+resetBtn.addEventListener('click', resetGame);
+
+function resetGame() {
+    const playerBoard = document.getElementById('player');
+    const playerBlocks = playerBoard.querySelectorAll('.block');
+    playerBlocks.forEach(block => {
+        block.classList.remove('destroyer', 'submarine', 'cruiser', 'battleship', 'carrier', 'taken');
+    });
+
+    playerHits = [];
+    computerHits = [];
+    playerSunkShips.length = 0;
+    computerSunkShips.length = 0;
+    gameOver = false;
+
+    infoDisplay.textContent = '';
+    const computerBoard = document.getElementById('computer');
+    const computerBlocks = computerBoard.querySelectorAll('.block');
+    computerBlocks.forEach(block => block.classList.remove('destroyer', 'submarine', 'cruiser', 'battleship', 'carrier', 'taken'));
+
+    ships.forEach(ship => {
+        let placed = false;
+        while (!placed) {
+            const randomStartId = Math.floor(Math.random() * width * width);
+            const randomBoolean = Math.random() < 0.5;
+            const isHorizontal = randomBoolean;
+
+            const { valid, notTaken } = getValidity(computerBlocks, isHorizontal, randomStartId, ship);
+
+            if (valid && notTaken) {
+                addShipPiece('computer', ship, randomStartId);
+                placed = true;
+            }
+        }
+    });
+
+    optionShips.forEach(optionShip => container.appendChild(optionShip));
+    optionShips.forEach(optionShip => optionShip.addEventListener('dragstart', dragStart));
+    startBTN.disabled = false;
+    turnDisplay.textContent = '';
 }
